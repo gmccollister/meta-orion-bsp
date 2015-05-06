@@ -1,0 +1,35 @@
+From ecbb294798eb5e83f411eba1dfe416c78208b2fa Mon Sep 17 00:00:00 2001
+From: George McCollister <george.mccollister@gmail.com>
+Date: Tue, 7 Apr 2015 15:11:04 -0500
+Subject: [PATCH] gma500: Don't use panel_fixed_mode.
+
+---
+ drivers/gpu/drm/gma500/psb_intel_lvds.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/gpu/drm/gma500/psb_intel_lvds.c b/drivers/gpu/drm/gma500/psb_intel_lvds.c
+index 88aad95..ad586c4 100644
+--- a/drivers/gpu/drm/gma500/psb_intel_lvds.c
++++ b/drivers/gpu/drm/gma500/psb_intel_lvds.c
+@@ -413,6 +413,10 @@ bool psb_intel_lvds_mode_fixup(struct drm_encoder *encoder,
+ 	 * of the original mode.
+ 	 */
+ 	if (panel_fixed_mode != NULL) {
++		/* XXX: Don't use panel_fixed_mode.
++		 * Find an elegent way to do this.
++		 */
++#if 0
+ 		adjusted_mode->hdisplay = panel_fixed_mode->hdisplay;
+ 		adjusted_mode->hsync_start = panel_fixed_mode->hsync_start;
+ 		adjusted_mode->hsync_end = panel_fixed_mode->hsync_end;
+@@ -422,6 +426,7 @@ bool psb_intel_lvds_mode_fixup(struct drm_encoder *encoder,
+ 		adjusted_mode->vsync_end = panel_fixed_mode->vsync_end;
+ 		adjusted_mode->vtotal = panel_fixed_mode->vtotal;
+ 		adjusted_mode->clock = panel_fixed_mode->clock;
++#endif
+ 		drm_mode_set_crtcinfo(adjusted_mode,
+ 				      CRTC_INTERLACE_HALVE_V);
+ 	}
+-- 
+2.2.2
+

@@ -1,0 +1,27 @@
+From 8c163563904c1c3030e7fc688f64ec3ac063c782 Mon Sep 17 00:00:00 2001
+From: George McCollister <george.mccollister@gmail.com>
+Date: Tue, 7 Apr 2015 15:07:59 -0500
+Subject: [PATCH] gma500: enable spread spectrum mode.
+
+---
+ drivers/gpu/drm/gma500/psb_intel_display.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/gpu/drm/gma500/psb_intel_display.c b/drivers/gpu/drm/gma500/psb_intel_display.c
+index b21a094..e156ecb 100644
+--- a/drivers/gpu/drm/gma500/psb_intel_display.c
++++ b/drivers/gpu/drm/gma500/psb_intel_display.c
+@@ -164,6 +164,10 @@ static int psb_intel_crtc_mode_set(struct drm_crtc *crtc,
+ 	if (is_lvds) {
+ 		dpll |= DPLLB_MODE_LVDS;
+ 		dpll |= DPLL_DVO_HIGH_SPEED;
++		/* XXX: enable spread spectrum mode.
++		 * This should be a setting.
++		 */
++		dpll |= (7<<9) | (1<<13) | (1<<14);
+ 	} else
+ 		dpll |= DPLLB_MODE_DAC_SERIAL;
+ 	if (is_sdvo) {
+-- 
+2.2.2
+
