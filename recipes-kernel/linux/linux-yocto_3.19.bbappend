@@ -10,7 +10,7 @@ COMPATIBLE_MACHINE_orionlxm = "orionlxm"
 COMPATIBLE_MACHINE_emenlow-noemgd = "emenlow-noemgd"
 
 SRC_URI_orionlxm = "git://git.yoctoproject.org/linux-yocto-3.19.git;protocol=git;nocheckout=1;branch=${KBRANCH},${KMETA};name=machine,meta"
-SRC_URI_orionlxm += "file://am335x.cfg"
+SRC_URI_orionlxm += "file://defconfig"
 
 SRC_URI_emenlow-noemgd = "git://git.yoctoproject.org/linux-yocto-3.19.git;protocol=git;nocheckout=1;branch=${KBRANCH},${KMETA};name=machine,meta"
 SRC_URI_emenlow-noemgd += "file://0001-gma500-enable-spread-spectrum-mode.patch"
