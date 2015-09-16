@@ -3,8 +3,8 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 KBRANCH_orionlxm = "standard/base"
 KBRANCH_emenlow-noemgd = "standard/base"
 
-SRCREV_machine_orionlxm ?= "31b35da6a5c8a2b162f6c33202e9b64dd13757d5"
-SRCREV_machine_emenlow-noemgd ?= "31b35da6a5c8a2b162f6c33202e9b64dd13757d5"
+SRCREV_machine_orionlxm ?= "d5d30ba4d20e65c15df624ffce7a5cd38150348b"
+SRCREV_machine_emenlow-noemgd ?= "d5d30ba4d20e65c15df624ffce7a5cd38150348b"
 
 COMPATIBLE_MACHINE_orionlxm = "orionlxm"
 COMPATIBLE_MACHINE_emenlow-noemgd = "emenlow-noemgd"
